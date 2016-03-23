@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.daniel.userBook.bean">  
+	<class name="UserBook" table="USER_BOOK">  
+	     <id name="id" column="ID">
+       		<generator class="uuid" />
+       	 </id>
+		 <property name="bookId" column="BOOK_ID" />
+		 <property name="userId" column="USER_ID" />
+		 <property name="startDate" column="START_DATE" />
+		 <property name="endDate" column="END_DATE" />
+		 <property name="status" column="STATUS" />
+		 <property name="borrow" column="borrow" />
+	</class>  
+</hibernate-mapping> 

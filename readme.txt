@@ -1,0 +1,1 @@
+A Java web app for book borrowing. (with Spring, Stratus and Hibernate. Mysql as DB.)

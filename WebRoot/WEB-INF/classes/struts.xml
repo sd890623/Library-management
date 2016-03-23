@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">    
+    
+<struts>
+ 	<!-- bookAction -->
+ 	<package name="com.daniel.book" extends="json-default">
+ 		<action name="addBook" class="com.daniel.book.action.BookAction" method='addBook'>
+ 			<result name="bookList" type="redirect">/book/bookList.jsp</result>
+ 		</action>
+ 		<action name="deleteBook" class="com.daniel.book.action.BookAction" method='deleteBook'>
+ 			<result name="bookList" type="redirect">/book/bookList.jsp</result>
+ 		</action>
+ 		<action name="updateBook" class="com.daniel.book.action.BookAction" method='updateBook'>
+ 			<result name="bookList" type="redirect">/book/bookList.jsp</result>
+ 		</action>
+ 		<action name="findBookById" class="com.daniel.book.action.BookAction" method='findBookById'>
+ 			<result name="book" type="redirect"></result>
+ 		</action>
+ 		<action name="findBookList" class="com.daniel.book.action.BookAction" method='findBookList'>
+ 			<result name="bookList" type="json">
+ 				<param name="root">
+ 					bookListJson
+ 				</param>
+ 			</result>
+ 		</action>
+ 		<action name="findBorrowList" class="com.daniel.book.action.BookAction" method='findBorrowList'>
+ 			<result name="borrowList" type="json">
+ 				<param name="root">
+ 					borrowListJson
+ 				</param>
+ 			</result>
+ 		</action>
+ 		<action name="setAsReturn" class="com.daniel.book.action.BookAction" method='setAsReturn'>
+ 			<result name="borrowList" type="redirect">/book/borrowList.jsp</result>
+ 		</action>
+ 		<action name="deleteBorrow" class="com.daniel.book.action.BookAction" method='deleteBorrow'>
+ 			<result name="borrowList" type="redirect">/book/borrowList.jsp</result>
+ 		</action>
+ 		<action name="addBorrow" class="com.daniel.book.action.BookAction" method='addBorrow'>
+ 			<result name="bookList" type="redirect">/book/bookList.jsp</result>
+ 		</action>
+ 	</package>
+ 	
+ 	<!-- UserAction -->
+ 	<package name="com.daniel.user" extends="json-default">
+ 		<action name="addUser" class="com.daniel.user.action.UserAction" method='addUser'>
+ 			<result name="userList" type="redirect">/user/userList.jsp</result>
+ 		</action>
+ 		<action name="deleteUser" class="com.daniel.user.action.UserAction" method='deleteUser'>
+ 			<result name="userList" type="redirect">/user/userList.jsp</result>
+ 		</action>
+ 		<action name="updateUser" class="com.daniel.user.action.UserAction" method='updateUser'>
+ 			<result name="userList" type="redirect">/user/userList.jsp</result>
+ 		</action>
+ 		<action name="updatePassword" class="com.daniel.user.action.UserAction" method='updatePassword'>
+ 			<result name="userList" type="redirect">/user/userList.jsp</result>
+ 		</action>
+ 		
+ 		<action name="findUserById" class="com.daniel.user.action.UserAction" method='findUserById'>
+ 			<result name="user" type="redirect"></result>
+ 		</action>
+ 		<action name="findUserList" class="com.daniel.user.action.UserAction" method='findUserList'>
+ 			<result name="userList" type="json">
+ 				<param name="root">
+ 					userListJson
+ 				</param>
+ 			</result>
+ 		</action>
+ 	</package>
+ 	
+ 	<!-- LoginAction -->
+ 	<package name="com.daniel.login.action" extends="struts-default">
+ 		<action name="login" class="com.daniel.login.action.LoginAction" method='login'>
+ 			<result name="success" type="redirect">/common/menu.jsp</result>
+ 			<result name="failure" type="redirect">/index.jsp</result>
+ 		</action>
+ 		<action name="logout" class="com.daniel.login.action.LoginAction" method='logout'>
+ 			<result name="success" type="redirect">/index.jsp</result>
+ 		</action>
+ 	</package>
+ 	 
+</struts>

@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+#searchBorrowForm
+{
+	padding: 10px;
+}
+
+#searchBookForm
+{
+	padding: 10px;
+}
+
+#bookList
+{
+	padding: 5px;
+}
+
+#borrowList
+{
+	padding: 5px;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/books"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="supersd623"></property>
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/daniel/book/bean/book.hbm.xml</value>
+				<value>com/daniel/user/bean/user.hbm.xml</value>
+				<value>com/daniel/userBook/bean/userBook.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="bookDao" class="com.daniel.book.dao.BookDao" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="bookService" class="com.daniel.book.service.impl.BookServiceImpl">
+		<property name="bookDao" ref="bookDao"></property>
+	</bean>
+	
+	<bean id="userBookDao" class="com.daniel.userBook.dao.UserBookDao" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="userBookService" class="com.daniel.userBook.service.impl.UserBookServiceImpl">
+		<property name="userBookDao" ref="userBookDao"></property>
+	</bean>
+	
+	<bean id="userDao" class="com.daniel.user.dao.UserDao" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="userService" class="com.daniel.user.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean id="DateUtility" class="com.daniel.utils.DateUtils">
+	</bean>
+	
+
+</beans>

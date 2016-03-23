@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.daniel.book.bean">  
+   <class name="Book" table="BOOK">  
+       <id name="bookId" column="BOOK_ID">
+       		<generator class="uuid" />
+       </id>
+       <property name="bookCode" column="BOOK_CODE" />      
+       <property name="bookName" column="BOOK_NAME" />
+	   <property name="contentType" column="CONTENT_TYPE" />
+	   <property name="price" column="PRICE" />
+	   <property name="penaltyPerDay" column="PENALTY_PER_DAY" />
+	   <property name="status" column="STATUS" />
+   </class>  
+</hibernate-mapping> 
